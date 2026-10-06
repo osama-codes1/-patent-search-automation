@@ -38,7 +38,7 @@ class PatentSearch:
         options = Options()
         options.add_argument("--window-size=1920,1080")
         if headless:
-            # "headless=new" is more stable on modern Chrome versions
+            
             options.add_argument("--headless=new")
 
         service = Service(ChromeDriverManager().install())
@@ -90,7 +90,7 @@ class PatentSearch:
             except Exception:
                 continue
 
-        # Remove duplicate results (same URL appearing more than once)
+        
         unique = {}
         for r in results:
             unique[r["url"]] = r
@@ -136,7 +136,7 @@ class PatentSearch:
             "Title": self.saved_title,
             "Link": self.saved_link,
             "Search Date": self.saved_time,
-            "Page Text": self.saved_text[:3000],  # avoid huge CSV files
+            "Page Text": self.saved_text[:3000],  
         }
 
         if filename is None:
